@@ -1,0 +1,1 @@
+java -jar ..\antlr-4.12.0-complete.jar -Dlanguage=Cpp -visitor -listener -o . ExtendSolidity.g4

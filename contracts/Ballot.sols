@@ -1,0 +1,17 @@
+chain.init 3
+
+chain.deploy Ballot 
+
+addr[] = evmc::address[1000000] 
+
+Ballot.init @0 ({"aaa", "bbb", "ccc"})
+chain.run
+
+Ballot.vote @addr.all (uint32.random(0, 2), 1)
+stopwatch.restart
+chain.run
+stopwatch.report
+
+Ballot.finalize @0 ()
+chain.run
+stopwatch.report

@@ -1,0 +1,11 @@
+proj.win/evmhost/
+proj.win/.vs/
+.vs/
+bin/solc
+build
+gnuplot
+src/script_parser/.antlr/
+src/transpiler/.antlr/
+.vscode/
+src/rust/demo/
+bin*

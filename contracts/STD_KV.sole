@@ -1,0 +1,15 @@
+contract STD_KV
+{
+    mapping (address => string) s;
+    
+    function set(address _scope, uint32 key, string memory value) public
+    {
+        address key_addr = address(uint160(key));
+        _set(key_addr, value);
+    }
+    
+    function _set(address _scope, string memory value) public
+    {
+        s[_scope] = value;
+    }
+}

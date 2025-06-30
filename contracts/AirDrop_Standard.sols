@@ -1,0 +1,19 @@
+chain.init
+
+chain.deploy AirDrop_Standard
+
+addr[] = evmc::address[1000000]
+
+count = 100000
+
+AirDrop_Standard._deposit @addr.all (1000000000)
+
+chain.run
+
+AirDrop_Standard.transfer_n * count @addr.random ({addr.random, uint32.random(10, 20)}[5])
+
+stopwatch.restart
+chain.run
+stopwatch.report
+
+chain.run

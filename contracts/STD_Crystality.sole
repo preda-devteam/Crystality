@@ -1,0 +1,66 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract STD_Crystality {
+    struct Kitty {
+        uint id;
+        address owner;
+        uint genes;
+        uint matronId;
+        uint sireId;
+        uint birthTime;
+        uint lastBreed; // block height
+    }
+    
+    Kitty[] allKitties;
+
+    function create(address owner, uint genes, uint matronId, uint sireId) internal returns (uint) {
+        uint id = allKitties.length;
+
+        Kitty memory newKitty;
+        newKitty.birthTime = block.number;
+        newKitty.owner = owner;
+        newKitty.id = id;
+        newKitty.genes = genes;
+        newKitty.matronId = matronId;
+        newKitty.sireId = sireId;
+        newKitty.lastBreed = block.number;
+        allKitties.push(newKitty);
+
+        return id;
+    }
+
+    function mint(uint genes, address owner) public {
+        create(owner, genes, 0, 0);
+    }
+    
+    function sqrt(uint x) internal pure returns (uint) {
+        uint z = (x + 1) / 2;
+        uint y = x;
+        while (z < y) {
+            y = z;
+            z = (x / z + z) / 2;
+        }
+        return y;
+    }
+
+    function genesMix(uint m_genes, uint s_gengs) internal pure returns (uint) {
+        uint new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        new_genes = sqrt(m_genes) * sqrt(s_gengs); // genes mixture
+        return new_genes;
+    }
+
+    function breed(uint m, uint s) public {
+        require(m < allKitties.length);
+        require(s < allKitties.length);
+        // require(allKitties[m].lastBreed + 100 < block.number) // breed cooldown
+        uint new_genes = genesMix(allKitties[m].genes, allKitties[s].genes);
+        create(msg.sender, new_genes, m, s);
+    }
+
+    
+}

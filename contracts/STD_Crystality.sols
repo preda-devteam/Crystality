@@ -1,0 +1,16 @@
+chain.init
+
+addr[] = address.random[28350]
+
+chain.deploy @1 STD_Crystality
+
+STD_Crystality.mint*1000 (uint32.random, addr.random)
+
+chain.run
+
+STD_Crystality.breed*242531 (uint32.random(0, 999), uint32.random(0, 999))
+chain.info
+
+stopwatch.restart
+chain.run
+stopwatch.report

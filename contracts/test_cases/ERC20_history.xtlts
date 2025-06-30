@@ -1,0 +1,11 @@
+chain.init
+
+chain.deploy ERC20.xtl
+
+// history
+ERC20 << ETH_2401_100000.csv
+
+chain.info
+stopwatch.restart
+chain.run
+stopwatch.report

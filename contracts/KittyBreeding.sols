@@ -1,0 +1,19 @@
+chain.init
+
+addr[] = address.random[10000]
+
+chain.deploy KittyBreeding
+
+KittyBreeding.mint @addr.all (uint32.random, true)
+chain.run
+KittyBreeding.mint @addr.all (uint32.random, false)
+chain.run
+
+count = 100000
+
+KittyBreeding.breed * count @addr.random (uint32.random(0, 9999), uint32.random(10000, 19999), false)
+stopwatch.restart
+chain.run
+KittyBreeding.finalize @0 ()
+chain.run
+stopwatch.report

@@ -1,0 +1,23 @@
+pragma solidity >=0.8.4;
+import "./ENSRegistry.sol";
+
+contract BaseRegistrarImplementation {
+    // The ENS registry
+    ENSRegistry @global public ens;
+    // The namehash of the TLD this registrar owns (eg, .eth)
+    bytes32 @global public baseNode;
+
+    constructor() {
+
+    }
+
+	function Config(ENSRegistry _ens, bytes32 _baseNode) @global external {
+		ens = _ens;
+        baseNode = _baseNode;
+	}
+
+    function registerWithConfig(string memory name, address owner, uint duration, bytes32 secret, address resolver, address addr) @address external returns (bytes32){
+        bytes32 label = keccak256(bytes(name));
+        return ens.setSubnodeOwner(msg.scope, baseNode, label, owner);
+    }
+}

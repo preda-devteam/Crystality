@@ -1,0 +1,23 @@
+chain.init
+
+chain.deploy @1 STD_ENSRegistry
+
+chain.deploy @2 STD_BaseRegistrarImplementation
+
+chain.run
+
+STD_BaseRegistrarImplementation.Config (1, 0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae)
+
+chain.run
+
+STD_ENSRegistry.setSubnodeOwner (0x0000000000000000000000000000000000000000000000000000000000000000, 0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0, 2)
+
+chain.run
+
+STD_BaseRegistrarImplementation << ENS_ETHRegistrarController_tx_for_execute.csv
+
+stopwatch.restart
+
+chain.run
+
+stopwatch.report

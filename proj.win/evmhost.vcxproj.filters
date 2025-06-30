@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2cf84b5c-e055-4173-9358-989ff48f7d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evmone">
+      <UniqueIdentifier>{1ced7a16-b9e6-4e93-9b94-f911304d81f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="script_parser">
+      <UniqueIdentifier>{1e3c4866-96de-4832-a9fb-b7fdf8f2a771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="transpiler">
+      <UniqueIdentifier>{7f2118d0-d5d6-4c7d-82b1-e21fff5d4598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ed25519">
+      <UniqueIdentifier>{c3b1fc29-3107-480d-8151-ea1d2ebfe1fe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\EVMEncoder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EVMExecutionEngine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EVMHost.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EVMScriptRunner.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EVMShard.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EVMSimulator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptBaseListener.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptBaseVisitor.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptLexer.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptListener.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptParser.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptRealListener.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptTreeWalker.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\script_parser\SolidityScriptVisitor.cpp">
+      <Filter>script_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\CodeSerializer.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityBaseListener.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityBaseVisitor.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityLexer.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityListener.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityParser.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityRealListener.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityTreeWalker.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transpiler\ExtendSolidityVisitor.cpp">
+      <Filter>transpiler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\evmone\src\keccak.c">
+      <Filter>evmone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\add_scalar.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\fe.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\ge.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\key_exchange.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\keypair.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\sc.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\seed.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\sha512.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\sign.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ed25519\verify.c">
+      <Filter>ed25519</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\EVMEncoder.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EVMExecutionEngine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EVMHost.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EVMScriptRunner.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EVMShard.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EVMSimulator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SolidityScript.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptBaseListener.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptBaseVisitor.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptLexer.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptListener.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptParser.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptRealListener.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptTreeWalker.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\script_parser\SolidityScriptVisitor.h">
+      <Filter>script_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\CodeSerializer.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityBaseListener.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityBaseVisitor.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityLexer.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityListener.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityParser.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityRealListener.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityTreeWalker.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\ExtendSolidityVisitor.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\transpiler\transpiler.h">
+      <Filter>transpiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\ed25519.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\fe.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\fixedint.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\ge.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\precomp_data.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\sc.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ed25519\sha512.h">
+      <Filter>ed25519</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\3rdParty\evmone\lib\win\evmone.lib">
+      <Filter>evmone</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

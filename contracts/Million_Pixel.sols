@@ -1,0 +1,17 @@
+chain.init 3
+
+chain.deploy Million_Pixel
+
+addr[] = evmc::address[1000000]
+
+Million_Pixel.warmup @addr.all (uint16.random(0, 999), uint16.random(0, 999))
+
+stopwatch.restart
+chain.run
+stopwatch.report
+
+Million_Pixel.occupy @addr.all (uint16.random(0, 999), uint16.random(0, 999))
+
+stopwatch.restart
+chain.run
+stopwatch.report

@@ -1,0 +1,11 @@
+contract KV {
+    string @address s;
+    function set(uint32 key, string memory value) @address public {
+        address key_addr = address(uint160(key));
+        relay @key_addr _set(value);
+    }
+
+    function _set(string memory value) @address internal {
+        s = value;
+    }
+}

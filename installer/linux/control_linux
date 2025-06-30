@@ -1,0 +1,10 @@
+Package: Crystality
+Version: 0.1.0.0
+Maintainer: Crystality Dev Team 
+Section: devel
+Homepage: www.example.org
+Architecture: amd64
+Priority: standard
+Depends: g++-9, gcc-9
+Description: Crystality Dev Environment
+

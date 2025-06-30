@@ -1,0 +1,11 @@
+chain.init
+
+chain.deploy Million_Pixel.xtl
+
+addr[] = evmc::address[100000]
+
+txn = Million_Pixel.occupy @addr.all (uint16.random(0, 999), uint16.random(0, 99))
+
+stopwatch.restart
+chain.run
+stopwatch.report

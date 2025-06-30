@@ -1,0 +1,64 @@
+chain.init
+
+// ERC20
+
+chain.deploy @0 sERC20.xtl
+addr[] = evmc::address[100000]
+count = 100000
+sERC20.mint @addr.all (10000000)
+chain.run
+sERC20.transfer * count @addr.random (addr.random, uint32.random(1000, 2000))
+stopwatch.restart
+chain.run
+stopwatch.report
+
+// AirDrop
+
+// chain.deploy @0 sAirDrop.xtl
+// addr[] = evmc::address[10000]
+// count = 100000
+// sAirDrop._deposit @addr.all (1000000000)
+// chain.run
+// sAirDrop.transfer_n * count @addr.random ({addr.random, uint32.random(10, 20)}[5])
+// stopwatch.restart
+// chain.run
+// stopwatch.report
+
+// Ballot
+// chain.deploy @0 sBallot.xtl 
+// addr[] = evmc::address[100000] 
+// sBallot.set @addr.all (uint32.random(10, 20), 0)
+// chain.run
+// sBallot.init @0 ({"aaa", "bbb", "ccc"})
+// chain.run
+// sBallot.vote @addr.all (uint32.random(0, 2), 1)
+// stopwatch.restart
+// chain.run
+// stopwatch.report
+// Ballot_Standard.finalize @0 ()
+// chain.run
+
+// Kitty
+
+// addr[] = evmc::address[1000]
+// chain.deploy @0 sKitty.xtl
+// sKitty.mint @addr.all (uint32.random, true)
+// chain.run
+// sKitty.mint @addr.all (uint32.random, false)
+// chain.run
+// count = 10000
+// sKitty.breed * count @addr.random (uint32.random(0, 999), uint32.random(1000, 1999), false)
+// stopwatch.restart
+// chain.run
+// stopwatch.report
+// sKitty.registerNewBorns ()
+// chain.run
+
+// Million_Pixel
+
+// chain.deploy @0 sMP.xtl 
+// addr[] = evmc::address[100000]
+// Million_Pixel_Standard.occupy @addr.all (uint16.random(0, 999), uint16.random(0, 99))
+// stopwatch.restart
+// chain.run
+// stopwatch.report

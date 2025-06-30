@@ -1,0 +1,83 @@
+pragma solidity >=0.8.4;
+
+/**
+ * The ENS registry contract.
+ */
+contract ENSRegistry{
+    struct Record {
+        address owner;
+        address resolver;
+        uint64 ttl;
+    }
+
+    address @global root_domain_owner;
+    mapping(bytes32 => address) @global top_level_domain_owners;
+
+    Record @address record;
+
+    /**
+     * @dev Constructs a new ENS registry.
+     */
+    constructor() public {
+    }
+
+    function Config() @address external{
+        root_domain_owner = msg.sender;
+        address rootnode_addr = address(uint160(bytes20(0x0)));
+        relay@rootnode_addr _setOwner(msg.sender);
+    }
+
+    function setTopLevelDomain(
+        string memory name,
+        address owner
+    ) @address external {
+        require(root_domain_owner == msg.sender);
+        bytes32 label = keccak256(bytes(name));
+        bytes32 subnode = keccak256(abi.encodePacked(bytes32(0x0), label));
+        relay@global _setTopLevelDomain(subnode, owner);
+        address node_addr = address(uint160(bytes20(subnode)));
+        relay@node_addr _setOwner(owner);
+    }
+
+    function _setTopLevelDomain(
+        bytes32 node,
+        address owner
+    ) @global internal {
+        top_level_domain_owners[node] = owner;
+    }
+
+    /**
+     * @dev Transfers ownership of a subnode keccak256(node, label) to a new address. May only be called by the owner of the parent node.
+     * @param node The parent node.
+     * @param label The hash of the label specifying the subnode.
+     * @param owner The address of the new owner.
+     */
+    function setSubnodeOwner(
+        bytes32 node,
+        bytes32 label,
+        address owner
+    ) @address public returns (bytes32) {
+        if (top_level_domain_owners[node] != address(0x0)) {
+            require(top_level_domain_owners[node] == msg.sender);
+            bytes32 subnode = keccak256(abi.encodePacked(node, label));
+            address node_addr = address(uint160(uint256(subnode)));
+            relay@node_addr _setOwner(owner);
+            return subnode;
+        } 
+        address node_addr = address(uint160(bytes20(node)));
+        bytes32 subnode = keccak256(abi.encodePacked(node, label));
+        relay@node_addr _setSubnodeOwner(msg.sender, subnode, owner);
+        return subnode;
+    }
+
+    function _setSubnodeOwner(address sender, bytes32 subnode, address owner) @address internal {
+        require(record.owner == sender);
+        address node_addr = address(uint160(bytes20(subnode)));
+        relay@node_addr _setOwner(owner);
+    }
+
+
+    function _setOwner(address owner) @address internal {
+        record.owner = owner;
+    }
+}

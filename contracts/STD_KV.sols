@@ -1,0 +1,14 @@
+chain.init
+
+chain.deploy STD_KV
+
+addr[] = evmc::address[100000]
+
+count = 1000000
+
+STD_KV.set * count @addr.random (uint32.random(0, 100000000000000000), "hello")
+
+stopwatch.restart
+chain.run
+stopwatch.report
+

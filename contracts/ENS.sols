@@ -1,0 +1,20 @@
+chain.init 3
+
+chain.deploy @1 ENSRegistry
+
+ENSRegistry.Config @1 ()
+chain.run
+
+chain.deploy @2 BaseRegistrarImplementation
+
+BaseRegistrarImplementation.Config (1, 0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae)
+chain.run
+
+ENSRegistry.setTopLevelDomain @1 ("eth", 2)
+chain.run
+
+BaseRegistrarImplementation << ENS_ETHRegistrarController_tx_for_execute.csv
+
+stopwatch.restart
+chain.run
+stopwatch.report
